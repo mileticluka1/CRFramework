@@ -102,7 +102,31 @@ check_cookies() {
 check_fileupload() {
 	local directory="$1"
 	local fileupload_payloads=(
-		"a"
+            "upload"
+	    "file upload"
+	    "upload file"
+	    "file transfer"
+	    "uploadData"
+	    "uploadFile"
+	    "sendFile"
+	    "saveFile"
+	    "uploadImage"
+	    "uploadDocument"
+	    "uploadMedia"
+	    "uploadAttachment"
+	    "uploadAudio"
+	    "uploadVideo"
+	    "uploadPhoto"
+	    "uploadDocument"
+	    "fileHandler"
+	    "fileManager"
+	    "fileHandler"
+	    "uploadManager"
+	    "uploadHandler"
+	    "fileProcessor"
+	    "fileReceiver"
+	    "fileSaver"
+	    "fileStorage"
 	)
 }
 
@@ -189,6 +213,9 @@ main() {
 
     echo -e "${CYAN}Checking for CSRF Tokens... \n===================================================================================================================================================================\n ${NC}"
     check_csrftokens "$directory"
+
+    echo -e "${RED}Checking for File Upload Vulnerabilities... \n===================================================================================================================================================================\n ${NC}"
+    check_fileupload "$directory"
 
     echo -e "${GREEN}Checking for cookies and sessions... \n===================================================================================================================================================================\n${NC}"
     check_cookies "$directory"
